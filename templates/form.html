@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion form </title>
+    <link rel="stylesheet" href="static/app.css" >
+</head>
+<body>
+    <main>
+
+
+        {% for message in get_flashed_messages() %}
+        <div id="errors">
+            <p>{{ message }}</p>
+        </div>
+    {% endfor %}
+
+
+        <h1>Welcome to my Fake Forex Converter or "Flask Import Errors are fun" for short!</h1>
+        <form action="/conversion">
+        <div>
+        <label for="input1">Converting from </label>
+        <input type="text" name="input1" id="input1" required>
+        </div>
+        <div>
+        <label for="input2">Converting to to</label>
+        <input type="text" name="input2" id="input2" required>
+        </div>
+        <div>
+        <label for="value">Amount to convert</label>
+        <input type="number" name="value" id="value" required>
+        </div>
+        <button>Submit</button>
+        </form>
+
+
+
+
+
+    </main>
+
+
+</body>
+</html>
