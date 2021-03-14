@@ -1,4 +1,5 @@
 from flask import Flask , render_template , request ,redirect
+from forex_python.converter import CurrencyRates
 #from forex_python.converter import CurrencyRates 
 
 #flask import errors couldnt solve so ill right the logic pretending it works
@@ -8,6 +9,7 @@ from flask import Flask , render_template , request ,redirect
 #or I am given an alternative module / api to use
 app = Flask(__name__)
 app.config['SECRET_KEY'] ="HarlowIsCute" 
+c = CurrencyRates()
 from flask.helpers import flash
 
 print('hello')
@@ -17,7 +19,7 @@ CURRENCY_DATABASE = ["EUR","USD","GBP","YEN","CNY","CAD"]
 
 def convert(cur1 , cur2 , val):
     """ This isnt a real converstion """
-    return val * 2
+    return c.convert(cur1, cur2, val) #this gets both the values passed into it an returns a float with the new value 
 
 #error message checking function
 
